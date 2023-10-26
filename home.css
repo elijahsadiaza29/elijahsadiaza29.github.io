@@ -47,26 +47,41 @@ body {
 .nav-menu a:hover {
   transform: scale(1.2);
 }
+
+
 .big-text {
   overflow: hidden;
+  position: relative;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
 }
+
+.big-text-inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: slide 20s linear infinite;
+}
+
 .big-text h1 {
   margin: 5rem;
   font-family: "Outfit", sans-serif;
   font-size: 22rem;
   font-weight: 200;
   white-space: nowrap;
-  animation: h1animation 20s linear infinite;
 }
 
-@keyframes h1animation {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-200%);
+@keyframes slide {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  } 100% {
+    transform: translate3d(var(--move-final), 0, 0);
   }
 }
+
+
 
 /* project section */
 
